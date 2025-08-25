@@ -1,0 +1,101 @@
+<header [class.scrolled]="isScrolled" class="site-header">
+  <!-- Responsive grid: 2 columns on mobile, 4 on desktop -->
+  <div class="w-full grid grid-cols-2 md:grid-cols-4">
+    <!-- Column 1: Blue rectangle + Logo (left 50% on mobile, 1/4 on desktop) -->
+    <div class="relative flex flex-col items-center justify-around h-[64px] md:h-[110px]">
+      <div [class]="isScrolled ? '' : 'hidden md:flex bg-[#00d6d6] w-full py-4 mb-6'"></div>
+      <div class="relative flex items-center justify-center w-full h-full">
+        <img
+          [src]="isScrolled ? 'assets/images/logos/JF-network-logo-black.svg' : 'assets/images/logos/JF-network-logo-white.svg'"
+          alt="Jackfruit Network"
+          class="h-8 md:h-10 z-10 transition-all"
+          onerror="this.style.display='none'"
+        />
+      </div>
+    </div>
+
+    <!-- Column 2: Desktop nav/socials, Mobile hamburger -->
+    <div class="col-span-1 md:col-span-3 flex flex-col justify-between bg-transparent mr-0 md:mr-8">
+      <!-- Desktop: Social icons & Language switcher -->
+      <div class="hidden md:flex justify-end items-center w-full pt-3 pr-6 gap-4">
+        <div class="flex items-center gap-4">
+          <a href="#" aria-label="Facebook"><img src="assets/images/icons/facebook.svg" class="h-5" /></a>
+          <a href="#" aria-label="YouTube"><img src="assets/images/icons/youtube.svg" class="h-5" /></a>
+          <a href="#" aria-label="WhatsApp"><img src="assets/images/icons/whatsapp.svg" class="h-5" /></a>
+          <a href="#" aria-label="TikTok"><img src="assets/images/icons/tiktok.svg" class="h-5" /></a>
+          <a href="#" aria-label="Instagram"><img src="assets/images/icons/instagram.svg" class="h-5" /></a>
+        </div>
+        <div class="flex items-center gap-1 ml-4">
+          <span class="bg-[#00d6d6] text-white text-xs px-2 py-1 rounded font-bold">ENG</span>
+          <span class="text-white text-xs">| KIS</span>
+        </div>
+      </div>
+      <!-- Desktop: Navigation bar -->
+      <div class="hidden md:flex justify-end items-center w-full mt-2">
+        <nav class="flex items-center h-12">
+          <ng-container *ngFor="let l of nav; let idx = index">
+            <a
+              [href]="l.href"
+              class="nav-link flex items-center px-5 h-full text-white font-medium text-base relative"
+              [class.selected]="selectedNav === idx"
+              (click)="selectNav(idx)"
+            >
+              <span>{{ l.label }}</span>
+              <!-- Underline (always visible) -->
+              <span
+                class="absolute left-0 bottom-0 w-full"
+                [ngClass]="{
+                  'border-b-4 border-white': selectedNav === idx,
+                  'border-b border-white/80': selectedNav !== idx
+                }"
+              ></span>
+            </a>
+          </ng-container>
+          <!-- Sign In button with underline -->
+          <div class="relative flex items-center h-full">
+            <button
+              class="btn-signin ml-2 px-6 py-1 border border-white text-white font-semibold bg-transparent transition-colors duration-150"
+              [class.active]="signInActive"
+              (mousedown)="signInActive = true"
+              (mouseup)="signInActive = false"
+              (mouseleave)="signInActive = false"
+            >
+              Sign In
+            </button>
+            <!-- White underline under Sign In button -->
+            <span
+              class="absolute left-0 bottom-0 w-full"
+              [ngClass]="{
+                'border-b-4 border-white': false,
+                'border-b border-white/80': true
+              }"
+            ></span>
+          </div>
+        </nav>
+      </div>
+      <!-- Mobile: Hamburger menu only -->
+      <div class="flex md:hidden justify-end items-center w-full h-full">
+        <button aria-label="Open menu" class="hamburger text-white text-3xl pr-4" (click)="openMenu()">☰</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile popup menu (unchanged) -->
+  <div *ngIf="menuOpen" class="fixed inset-0 z-50 bg-black bg-opacity-95 flex flex-col items-start px-8 py-8 animate-fade-in">
+    <button aria-label="Close menu" class="absolute top-6 right-6 text-white text-2xl" (click)="closeMenu()">✕</button>
+    <nav class="flex flex-col gap-6 mt-8 w-full">
+      <ng-container *ngFor="let l of nav">
+        <a [href]="l.href" class="text-white text-lg font-medium">{{ l.label }}</a>
+      </ng-container>
+      <button
+        class="border border-white text-white font-bold px-4 py-2 mt-4 bg-transparent"
+        [class.active]="signInActive"
+        (mousedown)="signInActive = true"
+        (mouseup)="signInActive = false"
+        (mouseleave)="signInActive = false"
+      >
+        Sign In
+      </button>
+    </nav>
+  </div>
+</header>

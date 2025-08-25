@@ -1,0 +1,17 @@
+.hero-slider {
+  position: relative;
+  min-height: 420px;
+
+  .absolute.inset-0 {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* Dots */
+  button[aria-label^="Go to slide"] {
+    @apply bg-white/50 w-3 h-3 rounded-full transition-all;
+  }
+  button[aria-label^="Go to slide"].active {
+    @apply bg-white w-3 h-3;
+  }
+}

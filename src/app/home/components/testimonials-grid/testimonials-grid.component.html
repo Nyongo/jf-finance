@@ -1,0 +1,64 @@
+<section class="py-12 bg-white">
+  <div class="app-container">
+    <!-- Blue header -->
+    <p class="text-xs sm:text-sm font-bold uppercase tracking-wide mb-2 text-[#00d6d6] text-center">
+      Testimonials
+    </p>
+    <!-- Main heading -->
+    <h2 class="text-3xl md:text-5xl font-extrabold leading-tight mb-8 text-black text-center">
+      What Are Our<br />Customer Saying
+    </h2>
+
+    <!-- Carousel -->
+    <div class="relative">
+      <!-- Left arrow (desktop only) -->
+      <button
+        (click)="scrollPrev()"
+        aria-label="Scroll testimonials left"
+        class="hidden md:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full shadow-md border bg-white/90 hover:bg-[#00d6d6] hover:text-white transition"
+      >
+        ‹
+      </button>
+
+      <div #carousel
+           role="list"
+           tabindex="0"
+           aria-label="Testimonials"
+           class="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar py-4 snap-x snap-mandatory"
+      >
+        <ng-container *ngFor="let t of testimonials">
+          <div role="listitem"
+               class="flex-none w-80 md:w-[28rem] lg:w-[24rem] bg-[#fdf6ef] rounded-lg p-8 text-center flex flex-col items-center snap-start shadow transition hover:shadow-lg">
+            <div class="w-24 h-24 rounded-full border-4 border-[#00d6d6] bg-gray-200 mb-4 flex items-center justify-center overflow-hidden">
+              <img *ngIf="t.avatar" [src]="t.avatar" [alt]="t.name" class="w-full h-full object-cover rounded-full" />
+            </div>
+            <h3 class="font-extrabold text-lg mb-2 text-black">{{ t.name }}</h3>
+            <p class="text-black mb-4">{{ t.text }}</p>
+            <div class="flex justify-center gap-1 mb-2">
+              <ng-container *ngFor="let s of [1,2,3,4,5]; let i = index">
+                <svg *ngIf="i < t.stars; else emptyStar" class="w-6 h-6 text-[#00d6d6] fill-[#00d6d6]" viewBox="0 0 24 24">
+                  <polygon points="12,2 15,9 22,9.3 17,14.1 18.5,21 12,17.5 5.5,21 7,14.1 2,9.3 9,9" />
+                </svg>
+                <ng-template #emptyStar>
+                  <svg class="w-6 h-6 text-[#00d6d6] fill-none stroke-[#00d6d6]" viewBox="0 0 24 24" stroke-width="2">
+                    <polygon points="12,2 15,9 22,9.3 17,14.1 18.5,21 12,17.5 5.5,21 7,14.1 2,9.3 9,9" />
+                  </svg>
+                </ng-template>
+              </ng-container>
+            </div>
+            <div class="text-gray-500 text-xs">{{ t.school }}</div>
+          </div>
+        </ng-container>
+      </div>
+
+      <!-- Right arrow (desktop only) -->
+      <button
+        (click)="scrollNext()"
+        aria-label="Scroll testimonials right"
+        class="hidden md:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full shadow-md border bg-white/90 hover:bg-[#00d6d6] hover:text-white transition"
+      >
+        ›
+      </button>
+    </div>
+  </div>
+</section>

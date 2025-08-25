@@ -1,0 +1,20 @@
+:host {
+  display: block;
+  background: #f7f8fa;
+}
+
+h2 {
+  position: relative;
+  display: inline-block;
+  .corner-accent {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    top: -2rem;
+    left: -2rem;
+    border-top: 16px solid #00d6d6;
+    border-left: 16px solid #00d6d6;
+    opacity: 1;
+    border-radius: 0 0 0 0.5rem;
+  }
+}

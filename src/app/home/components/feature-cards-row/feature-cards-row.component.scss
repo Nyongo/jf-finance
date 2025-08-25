@@ -1,0 +1,12 @@
+:host {
+  display: block;
+}
+
+/* Remove border-radius and margin for flush look */
+div[class*="bg-amber-500"], div[class*="bg-emerald-500"], div[class*="bg-blue-600"] {
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
+
+/* Remove any default shadow on these grouped cards */
+.app-container > .flex { box-shadow: none; }

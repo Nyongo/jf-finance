@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+/* Import Montserrat with many weights + italics variants */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* Tailwind directives (ensure Tailwind is installed & postcss configured) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global variables */
+:root {
+  --color-primary: #4EABBA;
+  --max-content-width: 1200px;
+}
+
+/* Default fonts and base resets */
+html, body {
+  font-family: 'Montserrat', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #111827;
+  background: #ffffff;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* App container */
+.app-container {
+  @apply mx-auto px-4;
+  max-width: var(--max-content-width);
+}
+
+/* helper classes */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display:none;
+}
+
+/* small accent utility - small angled square / corner */
+.accent-square { width: 18px; height: 18px; border-left: 3px solid var(--color-primary); border-bottom: 3px solid var(--color-primary); }
