@@ -1,21 +1,31 @@
-import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { Input } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, NgIf, RouterModule],
   standalone: true,
-  styleUrls: ['./header.component.scss'],
+  styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+   @Input() pageName?: string;
   isScrolled = false;
+  hasSolidBg = false;
   menuOpen = false;
   signInActive = false;
   selectedNav = 0;
 
   private scrollThreshold = 80;
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.choosePageNav();
+    this.backgroundColorCheck();
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -30,16 +40,40 @@ export class HeaderComponent {
     { label: 'Classroom Plans', href: '#' },
     { label: 'Application Form', href: '#' },
     { label: 'Careers', href: '#' },
-    { label: 'Contact Us', href: '#' },
+    { label: 'Contact Us', href: '/contact-us' },
   ];
 
-  openMenu() {
-    this.menuOpen = true;
+  goTo(link: string) {
+    this.router.navigate([link])
   }
-  closeMenu() {
-    this.menuOpen = false;
+
+  backgroundColorCheck(){
+    if(this.pageName != 'Home'){
+      this.hasSolidBg = true;
+    } else {
+      this.hasSolidBg = false;
+    }
   }
-  selectNav(idx: number) {
-    this.selectedNav = idx;
+
+  choosePageNav(){
+    if(this.pageName == 'Loans'){
+      this.selectedNav = 1;
+    } else if(this.pageName == 'Partnership'){
+      this.selectedNav = 2;
+    } else if(this.pageName == 'Classroom Plans'){
+      this.selectedNav = 3;
+    } else if(this.pageName == 'Application Form'){
+      this.selectedNav = 4;
+    } else if(this.pageName == 'Careers'){
+      this.selectedNav = 5;
+    }else if(this.pageName == 'Contact Us'){
+      this.selectedNav = 6;
+    }else {
+      this.selectedNav = 0;
+    }
   }
+
+  openMenu() { this.menuOpen = true; }
+  closeMenu() { this.menuOpen = false; }
+  selectNav(idx: number) { this.selectedNav = idx; }
 }

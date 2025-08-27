@@ -1,26 +1,26 @@
-<app-header></app-header>
+<app-header [pageName]="'Loans'"></app-header>
 
 <main class="mt-0 pt-0">
   <!-- Hero Section -->
-  <section
-    class="hero-section relative text-white py-8 md:py-12 lg:py-16 overflow-hidden"
-  >
-    <!-- Background Image -->
-    <div class="absolute inset-0 z-0">
-      <img
-        src="assets/images/loans/headerimage.svg"
-        alt="School Building with Yellow Buses"
-        class="hero-bg-image w-full h-full object-cover opacity-20"
-        onerror="this.src='assets/images/loans/headerimage.svg'"
-      />
-    </div>
+  <section class="case-banner relative w-full h-[300px] md:h-[400px] overflow-hidden">
+  <img
+    src="assets/images/loans/headerimage.svg"
+    alt="School Building with Yellow Buses"
+    class="absolute inset-0 w-full h-full object-cover"
+  />
+  <!-- dark overlay -->
+  <div class="absolute inset-0 bg-black/50 pointer-events-none"></div>
 
-    <!-- Content with gradient overlay -->
-    <div class="hero-content relative z-20 container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
-        Finance With the Right Partner
-      </h1>
-      <p class="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 max-w-4xl mx-auto">
+  <div class="relative z-20 flex items-center justify-center h-[480px] px-4">
+    <div class="text-center max-w-3xl mx-auto">
+        <div class="relative inline-block">
+        <span class="absolute -top-4 -left-4 w-7 h-7 border-t-4 border-l-4 border-[#F5AB29] md:w-8 md:h-8 md:border-t-8 md:border-l-8"></span>
+        <h1 class="text-white text-3xl md:text-5xl font-extrabold leading-tight px-4">
+          Finance With the Right Partner
+        </h1>
+        <span class="absolute -bottom-4 -right-4 w-7 h-7 border-b-4 border-r-4 border-[#F5AB29] md:w-8 md:h-8 md:border-b-8 md:border-r-8"></span>
+      </div>
+      <p class="mt-4 text-white/90 text-base md:text-lg">
         Empowering schools with flexible financing solutions to build better
         educational environments for our children.
       </p>
@@ -30,7 +30,8 @@
         Talk To Us
       </button>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- About Our Loans Section -->
   <section class="py-8 md:py-12 lg:py-16 bg-white">

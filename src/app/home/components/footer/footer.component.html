@@ -2,7 +2,7 @@
   <div class="app-container grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
     <!-- Logo & Socials -->
     <div>
-      <img src="assets/images/logos/JF-network-logo-white.svg" alt="Jackfruit Network Logo" class="h-12 mb-6" />
+      <img src="assets/images/logos/JF-finance-logo-white.svg" alt="Jackfruit Network Logo" class="h-12 mb-6" />
       <div class="flex gap-4 mb-6">
         <a aria-label="Facebook" href="#" target="_blank">
           <img src="assets/images/icons/facebook.svg" alt="Facebook" class="h-7 w-7" />
@@ -16,12 +16,12 @@
         <a aria-label="TikTok" href="#" target="_blank">
           <img src="assets/images/icons/tiktok.svg" alt="TikTok" class="h-7 w-7" />
         </a>
-        <a aria-label="Instagram" href="#" target="_blank">
+        <a aria-label="Instagram" target="_blank" href="https://www.instagram.com/jackfruitnetwork/">
           <img src="assets/images/icons/instagram.svg" alt="Instagram" class="h-7 w-7" />
         </a>
       </div>
       <div class="text-gray-400 text-sm mt-4 hidden md:block">
-        © 2025 Jackfruit Network<br />
+        © {{ currentYear }} Jackfruit Network<br />
         All Rights Reserved
       </div>
     </div>
@@ -31,10 +31,10 @@
       <ul class="space-y-2">
         <li><a href="/about">About</a></li>
         <li><a target="_blank" href="https://www.jackfruitfinance.com/">JF Finance</a></li>
-        <li><a href="/jf-foundation">JF Foundation</a></li>
+        <li><a target="_blank" href="https://www.jackfruit-foundation.org/home">JF Foundation</a></li>
         <li><a target="_blank" href="https://www.jackfruithub.com/">JF Hub</a></li>
-        <li><a href="/media">Media</a></li>
-        <li><a href="/contact">Contact Us</a></li>
+        <!-- <li><a href="/media">Media</a></li> -->
+        <li><a href="/contact-us">Contact Us</a></li>
       </ul>
     </div>
 
@@ -52,17 +52,17 @@
     <div class="hidden md:block">
       <ul class="space-y-2">
         <li><a href="#">Facebook</a></li>
-        <li><a href="#">Instagram</a></li>
+        <li><a target="_blank" href="https://www.instagram.com/jackfruitnetwork/">Instagram</a></li>
         <li><a href="#">TikTok</a></li>
         <li><a href="#">WhatsApp</a></li>
-        <li><a href="#">YouTube</a></li>
+        <li><a target="_blank" href="#">YouTube</a></li>
       </ul>
     </div>
   </div>
 
   <!-- Mobile copyright -->
   <div class="border-t border-white/10 mt-8 pt-6 text-center text-sm text-gray-400 md:hidden">
-    © 2025 Jackfruit Network<br />
+    © {{ currentYear }} Jackfruit Network<br />
     All Rights Reserved
   </div>
 </footer>
