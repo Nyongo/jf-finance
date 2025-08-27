@@ -17,7 +17,8 @@ export class ImpactSectionComponent {
       label: 'Parents with children enrolled in the participating schools',
     },
     { value: '75%', label: 'Female school directors empowered' },
-    // { value: '6,675+', label: 'School teachers trained in our program' },
+    { value: '6,675+', label: 'School teachers trained in our program' },
+    { value: '65%', label: 'Total Female Teachers' },
   ];
 
   constructor(private readonly router: Router) {}
