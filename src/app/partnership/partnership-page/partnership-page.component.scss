@@ -1,0 +1,589 @@
+// Custom styles for the partnership page
+.container {
+  max-width: 1200px;
+  
+  @media (min-width: 1280px) {
+    max-width: 1400px;
+  }
+  
+  @media (min-width: 1536px) {
+    max-width: 1600px;
+  }
+}
+
+// Case banner hero section (matching Loans page)
+.case-banner {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  
+  @media (min-width: 768px) {
+    height: 400px;
+  }
+  
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  // Dark overlay
+  .bg-black\/50 {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+  }
+  
+  // Content container
+  .relative.z-20 {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 480px;
+    padding: 0 1rem;
+    
+    .text-center {
+      text-align: center;
+      max-width: 48rem;
+      margin: 0 auto;
+      
+      // Corner accent squares
+      .relative.inline-block {
+        position: relative;
+        display: inline-block;
+        
+        span {
+          position: absolute;
+          border-color: #F5AB29;
+          
+          // Top-left corner
+          &.-top-4.-left-4 {
+            top: -1rem;
+            left: -1rem;
+            width: 1.75rem;
+            height: 1.75rem;
+            border-top-width: 1rem;
+            border-left-width: 1rem;
+            
+            @media (min-width: 768px) {
+              width: 2rem;
+              height: 2rem;
+              border-top-width: 2rem;
+              border-left-width: 2rem;
+            }
+          }
+          
+          // Bottom-right corner
+          &.-bottom-4.-right-4 {
+            bottom: -1rem;
+            right: -1rem;
+            width: 1.75rem;
+            height: 1.75rem;
+            border-bottom-width: 1rem;
+            border-right-width: 1rem;
+            
+            @media (min-width: 768px) {
+              width: 2rem;
+              height: 2rem;
+              border-bottom-width: 2rem;
+              border-right-width: 2rem;
+            }
+          }
+        }
+      }
+      
+      // Heading
+      h1 {
+        color: white;
+        font-size: 1.875rem;
+        font-weight: 800;
+        line-height: 1.25;
+        padding: 0 1rem;
+        
+        @media (min-width: 768px) {
+          font-size: 3rem;
+        }
+      }
+      
+      // Subtitle
+      p {
+        margin-top: 1rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1rem;
+        line-height: 1.5;
+        
+        @media (min-width: 768px) {
+          font-size: 1.125rem;
+        }
+      }
+      
+      // CTA Button
+      .cta-button {
+        background-color: #F5AB29;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        
+        @media (min-width: 768px) {
+          padding: 1rem 2rem;
+          font-size: 1.125rem;
+        }
+        
+        @media (min-width: 1024px) {
+          padding: 1.25rem 3rem;
+          font-size: 1.25rem;
+        }
+        
+        &:hover {
+          background-color: rgba(245, 171, 41, 0.9);
+        }
+      }
+    }
+  }
+}
+
+// YouTube video styling
+iframe {
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+  }
+  
+  // Desktop enhancements
+  @media (min-width: 1024px) {
+    &:hover {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      transform: scale(1.03);
+    }
+  }
+}
+
+// Ensure proper spacing from header on all screen sizes
+main {
+  padding-top: 0;
+  
+  @media (max-width: 768px) {
+    padding-top: 0;
+  }
+  
+  @media (min-width: 1024px) {
+    padding-top: 0;
+  }
+}
+
+// Partner card styling (Mobile)
+.partner-card {
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+  
+  // Desktop enhancements
+  @media (min-width: 1024px) {
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+// Desktop partner card styling
+.partner-card-desktop {
+  transition: all 0.4s ease;
+  border: 1px solid #e5e7eb;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    border-color: #F5AB29;
+  }
+  
+  // Enhanced hover effects for desktop
+  @media (min-width: 1280px) {
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+// Feature card styling for desktop
+.feature-card-desktop {
+  transition: all 0.3s ease;
+  padding: 2rem;
+  
+  &:hover {
+    transform: translateY(-4px);
+    
+    .bg-primary\/10 {
+      background-color: rgba(245, 171, 41, 0.2);
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    padding: 2.5rem;
+    
+    &:hover {
+      transform: translateY(-6px);
+    }
+  }
+}
+
+// Partner link button styling (now using cta-button-secondary)
+
+// CTA button styling
+.cta-button {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  // Desktop enhancements
+  @media (min-width: 1024px) {
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(245, 171, 41, 0.4);
+    }
+  }
+}
+
+// Secondary CTA button styling
+.cta-button-secondary {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  // Desktop enhancements
+  @media (min-width: 1024px) {
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(245, 171, 41, 0.4);
+    }
+  }
+}
+
+// Enhanced responsive grid layouts
+@media (min-width: 768px) {
+  .partner-card {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .partner-card {
+    max-width: 800px;
+  }
+  
+  .partner-card-desktop {
+    max-width: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .partner-card {
+    max-width: 900px;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .case-banner {
+    .relative.z-20 {
+      height: 400px;
+    }
+  }
+}
+
+// Animation for partner cards
+.partner-card {
+  animation: fadeInUp 0.8s ease-out;
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// Staggered animation for partner cards
+.partner-card:nth-child(1) { animation-delay: 0.1s; }
+.partner-card:nth-child(2) { animation-delay: 0.2s; }
+.partner-card:nth-child(3) { animation-delay: 0.3s; }
+.partner-card:nth-child(4) { animation-delay: 0.4s; }
+.partner-card:nth-child(5) { animation-delay: 0.5s; }
+.partner-card:nth-child(6) { animation-delay: 0.6s; }
+.partner-card:nth-child(7) { animation-delay: 0.7s; }
+.partner-card:nth-child(8) { animation-delay: 0.8s; }
+
+// Desktop partner card animations
+.partner-card-desktop {
+  animation: fadeInUp 0.6s ease-out;
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// Staggered animation for desktop partner cards
+.partner-card-desktop:nth-child(1) { animation-delay: 0.1s; }
+.partner-card-desktop:nth-child(2) { animation-delay: 0.2s; }
+.partner-card-desktop:nth-child(3) { animation-delay: 0.3s; }
+.partner-card-desktop:nth-child(4) { animation-delay: 0.4s; }
+.partner-card-desktop:nth-child(5) { animation-delay: 0.5s; }
+.partner-card-desktop:nth-child(6) { animation-delay: 0.6s; }
+.partner-card-desktop:nth-child(7) { animation-delay: 0.7s; }
+.partner-card-desktop:nth-child(8) { animation-delay: 0.8s; }
+
+// Enhanced centering and alignment for desktop
+@media (min-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  // Desktop-specific grid improvements
+  .grid {
+    justify-items: center;
+    align-items: stretch;
+  }
+  
+  // Enhanced spacing for desktop - matching home page
+  section {
+    padding: 3rem 0;
+  }
+  
+  // Better typography scaling for desktop - matching home page patterns
+  h1 {
+    line-height: 1.1;
+  }
+  
+  h2 {
+    line-height: 1.2;
+  }
+  
+  h3 {
+    line-height: 1.3;
+  }
+  
+  p {
+    line-height: 1.4;
+  }
+}
+
+// Extra large screen enhancements
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  section {
+    padding: 5rem 0;
+  }
+  
+  // Enhanced spacing between elements
+  .mb-12 {
+    margin-bottom: 3rem;
+  }
+  
+  .mb-16 {
+    margin-bottom: 4rem;
+  }
+  
+  .mb-20 {
+    margin-bottom: 5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1600px;
+  }
+  
+  section {
+    padding: 6rem 0;
+  }
+}
+
+// Reduced spacing between sections - matching home page
+section {
+  margin-bottom: 0;
+  
+  &:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
+// Compact spacing for better content flow
+.text-center {
+  @media (min-width: 1024px) {
+    text-align: center;
+  }
+}
+
+// Ensure proper grid alignment
+.grid {
+  @media (min-width: 1024px) {
+    justify-items: center;
+  }
+}
+
+// Desktop-specific hover effects
+@media (min-width: 1024px) {
+  .partner-card-desktop {
+    &:hover {
+      .bg-white\/90 {
+        background-color: rgba(255, 255, 255, 0.95);
+      }
+      
+      .bg-white\/95 {
+        background-color: rgba(255, 255, 255, 0.98);
+      }
+    }
+  }
+  
+  // Enhanced button interactions
+  .cta-button,
+  .cta-button-secondary {
+    &:hover {
+      transform: translateY(-3px) scale(1.02);
+    }
+    
+    &:active {
+      transform: translateY(-1px) scale(1.01);
+    }
+  }
+}
+
+// Smooth scrolling for better desktop experience
+html {
+  scroll-behavior: smooth;
+}
+
+// Enhanced focus states for accessibility
+button:focus,
+a:focus {
+  outline: 2px solid #F5AB29;
+  outline-offset: 2px;
+}
+
+// Desktop-specific image optimizations
+@media (min-width: 1024px) {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+// Typography consistency with home page
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+// Font weights matching home page
+.font-extrabold {
+  font-weight: 800;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+// Leading (line-height) matching home page
+.leading-tight {
+  line-height: 1.25;
+}
+
+.leading-relaxed {
+  line-height: 1.625;
+}
+
+// Tracking (letter-spacing) matching home page
+.tracking-wide {
+  letter-spacing: 0.025em;
+}
+
+// Uppercase text styling matching home page
+.uppercase {
+  text-transform: uppercase;
+}

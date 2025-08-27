@@ -1,0 +1,176 @@
+// Case banner hero section (matching other pages)
+.case-banner {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    height: 400px;
+  }
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .bg-black\/50 {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+  }
+}
+
+// CTA button styling
+.cta-button {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  // Desktop enhancements
+  @media (min-width: 1024px) {
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(245, 171, 41, 0.4);
+    }
+  }
+}
+
+// Enhanced responsive grid layouts
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .case-banner {
+    .relative.z-20 {
+      height: 400px;
+    }
+  }
+}
+
+// Animation for content sections
+section {
+  animation: fadeInUp 0.8s ease-out;
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// Typography consistency with other pages
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+// Font weights matching other pages
+.font-extrabold {
+  font-weight: 800;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+// Leading (line-height) matching other pages
+.leading-tight {
+  line-height: 1.25;
+}
+
+.leading-relaxed {
+  line-height: 1.625;
+}
+
+// Enhanced focus states for accessibility
+button:focus,
+a:focus {
+  outline: 2px solid #F5AB29;
+  outline-offset: 2px;
+}
+
+// Desktop-specific image optimizations
+@media (min-width: 1024px) {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+// Smooth scrolling for better desktop experience
+html {
+  scroll-behavior: smooth;
+}

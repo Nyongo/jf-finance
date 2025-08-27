@@ -8,10 +8,10 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './header.component.html',
   imports: [CommonModule, NgIf, RouterModule],
   standalone: true,
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-   @Input() pageName?: string;
+  @Input() pageName?: string;
   isScrolled = false;
   hasSolidBg = false;
   menuOpen = false;
@@ -36,44 +36,49 @@ export class HeaderComponent implements OnInit {
   nav = [
     { label: 'Home', href: '/home' },
     { label: 'Loans', href: '/loans' },
-    { label: 'Partnership', href: '#' },
-    { label: 'Classroom Plans', href: '#' },
-    { label: 'Application Form', href: '#' },
-    { label: 'Careers', href: '#' },
-    { label: 'Contact Us', href: '/contact-us' },
+    { label: 'Partnership', href: '/partnership' },
+    { label: 'Classroom Plans', href: '/classroom-plans' },
+    { label: 'About Us', href: '#' },
+    { label: 'Contact', href: '#' },
   ];
 
   goTo(link: string) {
-    this.router.navigate([link])
+    this.router.navigate([link]);
   }
 
-  backgroundColorCheck(){
-    if(this.pageName != 'Home'){
+  backgroundColorCheck() {
+    if (this.pageName != 'Home') {
       this.hasSolidBg = true;
     } else {
       this.hasSolidBg = false;
     }
   }
 
-  choosePageNav(){
-    if(this.pageName == 'Loans'){
+  choosePageNav() {
+    if (this.pageName == 'Loans') {
       this.selectedNav = 1;
-    } else if(this.pageName == 'Partnership'){
+    } else if (this.pageName == 'Partnership') {
       this.selectedNav = 2;
-    } else if(this.pageName == 'Classroom Plans'){
+    } else if (this.pageName == 'Classroom Plans') {
       this.selectedNav = 3;
-    } else if(this.pageName == 'Application Form'){
+    } else if (this.pageName == 'Application Form') {
       this.selectedNav = 4;
-    } else if(this.pageName == 'Careers'){
+    } else if (this.pageName == 'Careers') {
       this.selectedNav = 5;
-    }else if(this.pageName == 'Contact Us'){
+    } else if (this.pageName == 'Contact Us') {
       this.selectedNav = 6;
-    }else {
+    } else {
       this.selectedNav = 0;
     }
   }
 
-  openMenu() { this.menuOpen = true; }
-  closeMenu() { this.menuOpen = false; }
-  selectNav(idx: number) { this.selectedNav = idx; }
+  openMenu() {
+    this.menuOpen = true;
+  }
+  closeMenu() {
+    this.menuOpen = false;
+  }
+  selectNav(idx: number) {
+    this.selectedNav = idx;
+  }
 }
