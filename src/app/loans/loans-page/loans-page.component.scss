@@ -1,0 +1,383 @@
+// Custom styles for the loans page
+.container {
+  max-width: 1200px;
+  
+  @media (min-width: 1280px) {
+    max-width: 1400px;
+  }
+  
+  @media (min-width: 1536px) {
+    max-width: 1600px;
+  }
+}
+
+// Hero section with background image
+.hero-section {
+  position: relative;
+  min-height: 300px; // Reduced from 500px
+  margin-top: 0; // Remove top margin to start from top of screen
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../../../assets/images/loans/headerimage.svg') center/cover;
+    opacity: 0.15;
+    z-index: 0;
+    transition: all 0.5s ease;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 20;
+    padding-top: 80px; // Reduced from 120px
+    
+    // Ensure text is clearly visible
+    h1, p {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    
+    h1 {
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    }
+  }
+  
+  // Responsive background adjustments
+  @media (max-width: 768px) {
+    min-height: 250px; // Reduced from 400px
+    
+    .hero-content {
+      padding-top: 70px; // Reduced from 100px
+    }
+    
+    &::before {
+      background-position: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    min-height: 200px; // Reduced from 350px
+    
+    .hero-content {
+      padding-top: 60px; // Reduced from 80px
+    }
+  }
+  
+  // Large screen enhancements
+  @media (min-width: 1024px) {
+    min-height: 350px; // Reduced from 600px
+    
+    .hero-content {
+      padding-top: 100px; // Reduced from 140px
+    }
+    
+    &::before {
+      opacity: 0.2;
+    }
+  }
+  
+  @media (min-width: 1440px) {
+    min-height: 400px; // Reduced from 700px
+    
+    .hero-content {
+      padding-top: 120px; // Reduced from 160px
+    }
+    
+    &::before {
+      opacity: 0.25;
+    }
+  }
+}
+
+// Ensure proper spacing from header on all screen sizes
+main {
+  padding-top: 0;
+  
+  @media (max-width: 768px) {
+    padding-top: 0;
+  }
+  
+  @media (min-width: 1024px) {
+    padding-top: 0;
+  }
+}
+
+// Background image fallback and optimization
+.hero-bg-image {
+  transition: all 0.5s ease;
+  filter: brightness(0.8) contrast(1.1);
+  
+  &:hover {
+    opacity: 0.25;
+    filter: brightness(0.9) contrast(1.2);
+  }
+  
+  // Ensure image covers the entire section
+  object-fit: cover;
+  object-position: center;
+}
+
+// Enhanced gradient overlay - lighter and more transparent
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg, 
+    rgba(0, 0, 0, 0.3) 0%, 
+    rgba(0, 0, 0, 0.2) 50%, 
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  z-index: 1;
+}
+
+// Primary color accent styling for buttons and highlights
+.btn-primary {
+  background: linear-gradient(135deg, #F5AB29, #e69c1a);
+  border: none;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: linear-gradient(135deg, #e69c1a, #d68c0a);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(245, 171, 41, 0.3);
+  }
+}
+
+// Loan product cards styling for side-by-side layout
+.loan-product-card {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  height: fit-content;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: #F5AB29;
+  }
+  
+  // Desktop enhancements
+  @media (min-width: 1024px) {
+    padding: 2rem;
+    
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+// Loan information cards styling
+.loan-info-card {
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border-left: 4px solid #F5AB29;
+  transition: all 0.3s ease;
+  
+  strong {
+    color: #374151;
+  }
+  
+  // Desktop enhancements
+  @media (min-width: 1024px) {
+    padding: 1.5rem;
+    border-left-width: 6px;
+    
+    &:hover {
+      background: #f3f4f6;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+// Primary color bullet points styling
+.primary-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: #F5AB29;
+  border-radius: 50%;
+  margin-right: 12px;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+// Partner rewards section styling
+.rewards-card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  // Desktop enhancements
+  @media (min-width: 1024px) {
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+// Desktop-only features section
+.desktop-features {
+  .feature-icon {
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.1);
+      background-color: rgba(245, 171, 41, 0.2);
+    }
+  }
+  
+  .feature-card {
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+}
+
+// Enhanced responsive grid layouts
+.loan-features-grid {
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 1.5rem;
+  }
+  
+  @media (min-width: 1024px) {
+    gap: 1.5rem 2rem;
+  }
+}
+
+// Enhanced button responsiveness
+.cta-button {
+  transition: all 0.3s ease;
+  
+  @media (min-width: 1024px) {
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(245, 171, 41, 0.4);
+    }
+  }
+}
+
+// Enhanced image styling for desktop
+.classroom-image {
+  @media (min-width: 1024px) {
+    &:hover {
+      transform: scale(1.02);
+      transition: transform 0.3s ease;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 3rem 1rem;
+    
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+  
+  .loan-types-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Animation for step numbers
+.step-number {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Desktop-specific animations
+@media (min-width: 1024px) {
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// Enhanced centering and alignment for desktop
+@media (min-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .loan-product-card {
+    text-align: left;
+  }
+  
+  .rewards-card {
+    text-align: left;
+  }
+  
+  .feature-card {
+    text-align: center;
+  }
+}
+
+// Reduced spacing between sections
+section {
+  margin-bottom: 0;
+  
+  &:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
+// Compact spacing for better content flow
+.text-center {
+  @media (min-width: 1024px) {
+    text-align: center;
+  }
+}
+
+// Ensure proper grid alignment
+.grid {
+  @media (min-width: 1024px) {
+    justify-items: center;
+  }
+}

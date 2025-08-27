@@ -1,4 +1,8 @@
-<section class="hero-slider relative overflow-hidden" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+<section
+  class="hero-slider relative overflow-hidden"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+>
   <!-- Slides as stacked backgrounds -->
   <ng-container *ngFor="let s of slides; let i = index">
     <div
@@ -14,17 +18,27 @@
   </ng-container>
 
   <!-- Hero content (title + subtitle + dots) -->
-  <div class="relative z-20 flex items-center justify-center h-[420px] md:h-[640px] px-4">
+  <div
+    class="relative z-20 flex items-center justify-center h-[420px] md:h-[640px] px-4"
+  >
     <div class="text-center max-w-3xl mx-auto">
       <!-- Title with corner accents -->
       <div class="relative inline-block">
-        <span class="absolute -top-4 -left-4 w-7 h-7 border-t-4 border-l-4 border-[#00d6d6] md:w-8 md:h-8 md:border-t-8 md:border-l-8"></span>
-        <h1 class="text-white text-3xl md:text-5xl font-extrabold leading-tight px-4">
+        <span
+          class="absolute -top-4 -left-4 w-7 h-7 border-t-4 border-l-4 border-[#F5AB29] md:w-8 md:h-8 md:border-t-8 md:border-l-8"
+        ></span>
+        <h1
+          class="text-white text-3xl md:text-5xl font-extrabold leading-tight px-4"
+        >
           {{ slides[current].title }}
         </h1>
-        <span class="absolute -bottom-4 -right-4 w-7 h-7 border-b-4 border-r-4 border-[#00d6d6] md:w-8 md:h-8 md:border-b-8 md:border-r-8"></span>
+        <span
+          class="absolute -bottom-4 -right-4 w-7 h-7 border-b-4 border-r-4 border-[#F5AB29] md:w-8 md:h-8 md:border-b-8 md:border-r-8"
+        ></span>
       </div>
-      <p class="mt-4 text-white/90 text-base md:text-lg">{{ slides[current].subtitle }}</p>
+      <p class="mt-4 text-white/90 text-base md:text-lg">
+        {{ slides[current].subtitle }}
+      </p>
 
       <!-- Accent line -->
       <div class="flex justify-center my-10">
@@ -45,11 +59,23 @@
   </div>
 
   <!-- Feature cards row sits overlapping the bottom of the hero -->
-  <div class="absolute left-0 right-0 bottom-0 z-30">
+  <!-- <div class="absolute left-0 right-0 bottom-0 z-30">
     <app-feature-cards-row></app-feature-cards-row>
-  </div>
+  </div> -->
 
   <!-- Prev/next controls (on top of slides) -->
-  <button aria-label="Previous slide" class="absolute left-3 top-1/2 -translate-y-1/2 z-40 text-white text-3xl md:text-4xl" (click)="prev()">‹</button>
-  <button aria-label="Next slide" class="absolute right-3 top-1/2 -translate-y-1/2 z-40 text-white text-3xl md:text-4xl" (click)="next()">›</button>
+  <button
+    aria-label="Previous slide"
+    class="absolute left-3 top-1/2 -translate-y-1/2 z-40 text-white text-3xl md:text-4xl"
+    (click)="prev()"
+  >
+    ‹
+  </button>
+  <button
+    aria-label="Next slide"
+    class="absolute right-3 top-1/2 -translate-y-1/2 z-40 text-white text-3xl md:text-4xl"
+    (click)="next()"
+  >
+    ›
+  </button>
 </section>

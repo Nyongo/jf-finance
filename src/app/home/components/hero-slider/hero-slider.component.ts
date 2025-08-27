@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { interval, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { FeatureCardsRowComponent } from '../feature-cards-row/feature-cards-row.component';
+//import { FeatureCardsRowComponent } from '../feature-cards-row/feature-cards-row.component';
 
 interface HeroSlide {
   id: string;
@@ -15,24 +15,26 @@ interface HeroSlide {
 @Component({
   selector: 'app-hero-slider',
   templateUrl: './hero-slider.component.html',
-  imports: [CommonModule, FeatureCardsRowComponent],
+  imports: [CommonModule],
   standalone: true,
-  styleUrls: ['./hero-slider.component.scss']
+  styleUrls: ['./hero-slider.component.scss'],
 })
 export class HeroSliderComponent implements OnInit, OnDestroy {
   slides: HeroSlide[] = [
     {
       id: 's1',
-      image: 'assets/images/hero/first-hero-banner.svg',
-      title: 'Fueling School Growth.',
-      subtitle: 'Powering African education through finance, partnerships, and technology.'
+      image: 'assets/images/hero/slider3.svg',
+      title: 'More than financing, partners in growth.',
+      subtitle:
+        'Fast, fairly priced, and accessible loans designed for schools, because thriving schools need more than capital, they need a partner committed to their long-term growth.',
     },
-    {
-      id: 's2',
-      image: 'assets/images/hero/second-hero-banner.svg',
-      title: 'Connecting Schools. Fostering Growth.',
-      subtitle: 'Flexible financing, expert advice and robust partnerships to support schools.'
-    }
+    // {
+    //   id: 's2',
+    //   image: 'assets/images/hero/slider2.svg',
+    //   title: 'Connecting Schools. Fostering Growth.',
+    //   subtitle:
+    //     'Flexible financing, expert advice and robust partnerships to support schools.',
+    // },
   ];
 
   // index of current slide shown
@@ -92,7 +94,8 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
 
   prev() {
     this.ngZone.run(() => {
-      this.current = (this.current - 1 + this.slides.length) % this.slides.length;
+      this.current =
+        (this.current - 1 + this.slides.length) % this.slides.length;
     });
   }
 

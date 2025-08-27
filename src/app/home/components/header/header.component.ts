@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   standalone: true,
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
   isScrolled = false;
@@ -23,15 +24,22 @@ export class HeaderComponent {
   }
 
   nav = [
-    { label: 'About', href: '#' },
-    { label: 'JF Finance', href: '#' },
-    { label: 'JF Foundation', href: '#' },
-    { label: 'JF Hub', href: '#' },
-    { label: 'Media', href: '#' },
-    { label: 'Contact Us', href: '#'}
+    { label: 'Home', href: '/home' },
+    { label: 'Loans', href: '/loans' },
+    { label: 'Partnership', href: '#' },
+    { label: 'Classroom Plans', href: '#' },
+    { label: 'Application Form', href: '#' },
+    { label: 'Careers', href: '#' },
+    { label: 'Contact Us', href: '#' },
   ];
 
-  openMenu() { this.menuOpen = true; }
-  closeMenu() { this.menuOpen = false; }
-  selectNav(idx: number) { this.selectedNav = idx; }
+  openMenu() {
+    this.menuOpen = true;
+  }
+  closeMenu() {
+    this.menuOpen = false;
+  }
+  selectNav(idx: number) {
+    this.selectedNav = idx;
+  }
 }
