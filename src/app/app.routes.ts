@@ -4,6 +4,8 @@ import { LoansPageComponent } from './loans/loans-page/loans-page.component';
 import { PartnershipPageComponent } from './partnership/partnership-page/partnership-page.component';
 import { ClassroomPlansPageComponent } from './classroom-plans/classroom-plans-page/classroom-plans-page.component';
 import { ContactUsComponent } from './home/contact-us/contact-us.component';
+import { CareersPageComponent } from './careers/careers-page/careers-page.component';
+import { JobDetailComponent } from './careers/job-detail/job-detail.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,4 +14,6 @@ export const routes: Routes = [
   { path: 'partnership', component: PartnershipPageComponent },
   { path: 'classroom-plans', component: ClassroomPlansPageComponent },
   { path: 'contact-us', component: ContactUsComponent },
+  { path: 'careers', component: CareersPageComponent },
+  { path: 'careers/:id', component: JobDetailComponent },
 ];

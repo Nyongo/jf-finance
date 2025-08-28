@@ -1,20 +1,32 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { HeaderComponent } from '../components/header/header.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { ContactUsService } from '../../services/jf-network-contact-page.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contact-us',
-  imports: [CommonModule, HeaderComponent, ReactiveFormsModule, FooterComponent],
+  imports: [
+    CommonModule,
+    HeaderComponent,
+    ReactiveFormsModule,
+    FooterComponent,
+  ],
   templateUrl: './contact-us.component.html',
-  styleUrl: './contact-us.component.scss'
+  styleUrl: './contact-us.component.scss',
 })
 export class ContactUsComponent implements OnInit {
   @Input() messageType: 'PARTNER' | 'ENQUIRY' | 'NORMAL' = 'NORMAL';
-  @Input() platform: 'JF_NETWORK' | 'JF_FOUNDATION' | 'JF_FINANCE' | 'JF_HUB' = 'JF_FINANCE';
+  @Input() platform: 'JF_NETWORK' | 'JF_FOUNDATION' | 'JF_FINANCE' | 'JF_HUB' =
+    'JF_FINANCE';
   pageName = 'Contact Us';
 
   form!: FormGroup;
@@ -23,9 +35,33 @@ export class ContactUsComponent implements OnInit {
   loading = false;
   errorOccurred = false;
 
-  constructor(private fb: FormBuilder, private contactUsService: ContactUsService) {}
+  constructor(
+    private fb: FormBuilder,
+    private contactUsService: ContactUsService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    // Read query params if provided and safely coerce to allowed values
+    const allowedMessageTypes = new Set(['PARTNER', 'ENQUIRY', 'NORMAL']);
+    const allowedPlatforms = new Set([
+      'JF_NETWORK',
+      'JF_FOUNDATION',
+      'JF_FINANCE',
+      'JF_HUB',
+    ]);
+
+    const qp = this.route.snapshot.queryParamMap;
+    const qpMessageType = qp.get('messageType') || undefined;
+    const qpPlatform = qp.get('platform') || undefined;
+
+    if (qpMessageType && allowedMessageTypes.has(qpMessageType)) {
+      this.messageType = qpMessageType as typeof this.messageType;
+    }
+    if (qpPlatform && allowedPlatforms.has(qpPlatform)) {
+      this.platform = qpPlatform as typeof this.platform;
+    }
+
     this.form = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -61,7 +97,7 @@ export class ContactUsComponent implements OnInit {
         this.loading = false;
         this.errorOccurred = true;
         console.error('Error sending message', err);
-      }
+      },
     });
   }
 }

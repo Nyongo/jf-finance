@@ -35,7 +35,8 @@
     </p>
     <br />
     <a
-      href="/contact"
+      [routerLink]="['/contact-us']"
+      [queryParams]="{ messageType: 'ENQUIRY', platform: 'JF_FINANCE' }"
       class="inline-block px-6 py-3 md:px-10 md:py-2 bg-primary text-black font-semibold text-base md:text-lg shadow hover:bg-gray-900 transition"
     >
       Talk To Us

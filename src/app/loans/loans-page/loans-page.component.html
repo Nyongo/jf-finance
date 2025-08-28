@@ -2,36 +2,46 @@
 
 <main class="mt-0 pt-0">
   <!-- Hero Section -->
-  <section class="case-banner relative w-full h-[300px] md:h-[400px] overflow-hidden">
-  <img
-    src="assets/images/loans/headerimage.svg"
-    alt="School Building with Yellow Buses"
-    class="absolute inset-0 w-full h-full object-cover"
-  />
-  <!-- dark overlay -->
-  <div class="absolute inset-0 bg-black/50 pointer-events-none"></div>
+  <section
+    class="case-banner relative w-full h-[300px] md:h-[400px] overflow-hidden"
+  >
+    <img
+      src="assets/images/loans/headerimage.svg"
+      alt="School Building with Yellow Buses"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <!-- dark overlay -->
+    <div class="absolute inset-0 bg-black/50 pointer-events-none"></div>
 
-  <div class="relative z-20 flex items-center justify-center h-[480px] px-4">
-    <div class="text-center max-w-3xl mx-auto">
+    <div class="relative z-20 flex items-center justify-center h-[480px] px-4">
+      <div class="text-center max-w-3xl mx-auto">
         <div class="relative inline-block">
-        <span class="absolute -top-4 -left-4 w-7 h-7 border-t-4 border-l-4 border-[#F5AB29] md:w-8 md:h-8 md:border-t-8 md:border-l-8"></span>
-        <h1 class="text-white text-3xl md:text-5xl font-extrabold leading-tight px-4">
-          Finance With the Right Partner
-        </h1>
-        <span class="absolute -bottom-4 -right-4 w-7 h-7 border-b-4 border-r-4 border-[#F5AB29] md:w-8 md:h-8 md:border-b-8 md:border-r-8"></span>
+          <span
+            class="absolute -top-4 -left-4 w-7 h-7 border-t-4 border-l-4 border-[#F5AB29] md:w-8 md:h-8 md:border-t-8 md:border-l-8"
+          ></span>
+          <h1
+            class="text-white text-3xl md:text-5xl font-extrabold leading-tight px-4"
+          >
+            Finance With the Right Partner
+          </h1>
+          <span
+            class="absolute -bottom-4 -right-4 w-7 h-7 border-b-4 border-r-4 border-[#F5AB29] md:w-8 md:h-8 md:border-b-8 md:border-r-8"
+          ></span>
+        </div>
+        <p class="mt-4 text-white/90 text-base md:text-lg">
+          Empowering schools with flexible financing solutions to build better
+          educational environments for our children.
+        </p>
+        <button
+          class="mt-2 cta-button bg-primary text-white px-6 md:px-8 lg:px-12 py-3 md:py-4 lg:py-5 rounded-lg font-semibold hover:bg-primary/90 transition-colors text-base md:text-lg lg:text-xl"
+          [routerLink]="['/contact-us']"
+          [queryParams]="{ messageType: 'ENQUIRY', platform: 'JF_FINANCE' }"
+        >
+          Talk To Us
+        </button>
       </div>
-      <p class="mt-4 text-white/90 text-base md:text-lg">
-        Empowering schools with flexible financing solutions to build better
-        educational environments for our children.
-      </p>
-      <button
-        class="cta-button bg-primary text-white px-6 md:px-8 lg:px-12 py-3 md:py-4 lg:py-5 rounded-lg font-semibold hover:bg-primary/90 transition-colors text-base md:text-lg lg:text-xl"
-      >
-        Talk To Us
-      </button>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- About Our Loans Section -->
   <section class="py-8 md:py-12 lg:py-16 bg-white">
@@ -185,6 +195,8 @@
 
           <button
             class="cta-button bg-primary text-white px-6 md:px-8 lg:px-12 py-3 md:py-4 lg:py-5 rounded-lg font-semibold hover:bg-primary/90 transition-colors text-base md:text-lg lg:text-xl"
+            [routerLink]="['/contact-us']"
+            [queryParams]="{ messageType: 'ENQUIRY', platform: 'JF_FINANCE' }"
           >
             Talk To Us
           </button>

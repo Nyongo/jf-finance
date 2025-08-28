@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../home/components/header/header.component';
 import { FooterComponent } from '../../home/components/footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-loans-page',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent],
+  imports: [CommonModule, HeaderComponent, FooterComponent, RouterModule],
   templateUrl: './loans-page.component.html',
   styleUrl: './loans-page.component.scss',
 })

@@ -1,0 +1,128 @@
+<app-header [pageName]="'Careers'"></app-header>
+
+<main class="mt-0 pt-0">
+  <!-- Hero Section (matching Classroom Plans) -->
+  <section
+    class="case-banner relative w-full h-[300px] md:h-[400px] overflow-hidden"
+  >
+    <img
+      src="assets/images/classroom-plans/buses.svg"
+      alt="School buses in front of classrooms"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <!-- Dark overlay -->
+    <div class="absolute inset-0 bg-black/50 pointer-events-none"></div>
+
+    <div class="relative z-20 flex items-center justify-center h-full px-4">
+      <div class="text-center max-w-3xl mx-auto">
+        <div class="relative inline-block">
+          <span
+            class="absolute -top-4 -left-4 w-7 h-7 border-t-4 border-l-4 border-[#F5AB29] md:w-8 md:h-8 md:border-t-8 md:border-l-8"
+          ></span>
+          <p class="text-white text-sm md:text-base mb-2">Join Our Team</p>
+          <h1
+            class="text-white text-3xl md:text-5xl font-extrabold leading-tight px-4"
+          >
+            Careers at Jackfruit Finance
+          </h1>
+          <span
+            class="absolute -bottom-4 -right-4 w-7 h-7 border-b-4 border-r-4 border-[#F5AB29] md:w-8 md:h-8 md:border-b-8 md:border-r-8"
+          ></span>
+        </div>
+        <p class="mt-4 text-white/90 text-base md:text-lg">
+          Help expand access to quality education through finance and
+          partnerships
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Positions -->
+  <section class="py-10 md:py-14 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="text-center mb-8 md:mb-12">
+        <p
+          class="text-xs sm:text-sm font-bold uppercase tracking-wide mb-2 text-primary"
+        >
+          Open Roles
+        </p>
+        <h2
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight"
+        >
+          Current Opportunities
+        </h2>
+        <p class="mt-3 text-gray-700 max-w-3xl mx-auto">
+          We’re always looking for passionate people who believe every child
+          deserves a great education.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        <div
+          *ngFor="let job of openings"
+          class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 md:p-8"
+        >
+          <div
+            class="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+          >
+            <div>
+              <a
+                [routerLink]="['/careers', job.id]"
+                class="text-xl md:text-2xl font-semibold text-gray-900 hover:text-primary"
+                >{{ job.title }}</a
+              >
+              <div class="mt-1 text-gray-600 text-sm md:text-base">
+                {{ job.location }} • {{ job.type }}
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <a
+                [routerLink]="['/careers', job.id]"
+                class="inline-flex items-center px-5 py-2 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-black transition font-semibold"
+                >View details</a
+              >
+              <a
+                [routerLink]="['/contact-us']"
+                [queryParams]="{
+                  messageType: 'ENQUIRY',
+                  platform: 'JF_FINANCE'
+                }"
+                class="inline-flex items-center px-5 py-2 rounded-lg bg-primary text-black hover:bg-gray-900 hover:text-white transition font-semibold"
+                >Ask a question</a
+              >
+            </div>
+          </div>
+          <p class="mt-4 text-gray-700">{{ job.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- General CTA -->
+  <section class="py-10 md:py-16 bg-gray-50">
+    <div class="container mx-auto px-4 text-center max-w-4xl">
+      <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900">
+        Don't see a perfect fit?
+      </h3>
+      <p class="mt-3 text-gray-700">
+        We’d still love to hear from you. Share your CV and tell us how you can
+        help us grow our impact.
+      </p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          [routerLink]="['/contact-us']"
+          [queryParams]="{ messageType: 'ENQUIRY', platform: 'JF_FINANCE' }"
+          class="inline-flex items-center px-6 py-3 rounded-lg bg-primary text-black font-semibold hover:bg-gray-900 hover:text-white transition"
+          >Contact Us</a
+        >
+        <!-- <a
+          href="#openings"
+          class="inline-flex items-center px-6 py-3 rounded-lg border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-black transition"
+          >View Openings</a
+        > -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>
