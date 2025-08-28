@@ -38,8 +38,8 @@ export class HeaderComponent implements OnInit {
     { label: 'Loans', href: '/loans' },
     { label: 'Partnership', href: '/partnership' },
     { label: 'Classroom Plans', href: '/classroom-plans' },
-    { label: 'About Us', href: '#' },
-    { label: 'Contact', href: '#' },
+    { label: 'Careers', href: '/careers' },
+    { label: 'Contact Us', href: '/contact-us' },
   ];
 
   goTo(link: string) {
@@ -61,12 +61,10 @@ export class HeaderComponent implements OnInit {
       this.selectedNav = 2;
     } else if (this.pageName == 'Classroom Plans') {
       this.selectedNav = 3;
-    } else if (this.pageName == 'Application Form') {
-      this.selectedNav = 4;
     } else if (this.pageName == 'Careers') {
-      this.selectedNav = 5;
+      this.selectedNav = 4;
     } else if (this.pageName == 'Contact Us') {
-      this.selectedNav = 6;
+      this.selectedNav = 5;
     } else {
       this.selectedNav = 0;
     }
